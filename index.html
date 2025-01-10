@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jasa Pembuatan Website Murah</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-image: url('background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        .overlay {
+            background: rgba(0, 0, 0, 0.5);
+            min-height: 100vh;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding-top: 2rem;
+        }
+
+        .welcome-text {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(45deg, #fdfdfd, #ffdd00e6, #ffffff);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            white-space: nowrap;
+            overflow: hidden;
+            border-right: 3px solid #ffffff;
+        }
+
+        .fade-in {
+            opacity: 1 !important;
+        }
+
+        .typing-animation {
+            animation: typing 2s steps(20, end), blink-caret 0.75s step-end infinite;
+        }
+
+        .float-animation {
+            animation: shine 3s linear infinite, float 3s ease-in-out infinite;
+            border-right: none;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #ffffff }
+        }
+
+        @keyframes shine {
+            to {
+                background-position: 200% center;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0px);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+        }
+
+        .profile {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: white;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            margin: 0 auto 1rem;
+            overflow: hidden;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            color: #ffffff;
+        }
+
+        .profile p {
+            font-size: 1rem;
+            opacity: 0.9;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+            color: #f1f1f1;
+        }
+
+        .links {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        .link {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 1rem;
+            border-radius: 8px;
+            text-decoration: none;
+            color: white;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform-origin: center;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 60px;
+            font-weight: 600;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out, background 0.3s ease;
+            padding-left: 80px;
+        }
+
+        .link img {
+            position: absolute;
+            left: 10px;
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .link::before {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                to right,
+                transparent 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                transparent 100%
+            );
+            top: 0;
+            left: -100%;
+            transform: skewX(-25deg);
+            animation: shine-effect 3s infinite;
+        }
+
+        .link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #ffffff;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .link .left-border {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: #ffffff;
+            transform: scaleY(0);
+            transition: transform 0.3s ease;
+            transform-origin: top;
+        }
+
+        .link:hover .left-border {
+            transform: scaleY(1);
+        }
+
+        @keyframes shine-effect {
+            from {
+                left: -100%;
+            }
+            to {
+                left: 200%;
+            }
+        }
+
+        .link:hover {
+            transform: scale(1.05) translateY(-5px);
+            background: rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 20px rgba(250, 250, 250, 0.4);
+            color: white;
+        }
+
+        .link:hover::after {
+            transform: scaleX(1);
+        }
+
+        footer {
+            text-align: center;
+            color: white;
+            background: rgba(247, 247, 247, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin: 0 1rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        @media (min-width: 640px) {
+            .links {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .welcome-text {
+                font-size: 1.5rem;
+            }
+            
+            .profile h1 {
+                font-size: 1.5rem;
+            }
+
+            .profile p {
+                font-size: 0.9rem;
+            }
+            
+            .links {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .hamburger-menu {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .hamburger-menu:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .hamburger-menu .bar {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.4s;
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.95);
+            padding: 20px;
+            transition: 0.4s;
+            z-index: 999;
+            overflow-y: auto;
+        }
+
+        .menu-overlay.active {
+            right: 0;
+        }
+
+        .menu-content {
+            margin-top: 30px;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+        }
+
+        .menu-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, #ffffff, #ffd700);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            font-weight: 700;
+        }
+
+        .wa-icon {
+            width: 70px;
+            height: 70px;
+            margin: 20px auto;
+            display: block;
+            transition: 0.3s;
+            filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3));
+        }
+
+        .wa-icon:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.5));
+        }
+
+        .order-text {
+            color: #ffd700;
+            text-align: center;
+            margin: 15px 0;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .marketing-content {
+            margin-top: 40px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+        }
+
+        .marketing-content h1 {
+            font-size: 1.5rem;
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .marketing-content p {
+            color: #ffffff;
+            margin-bottom: 15px;
+            text-align: left;
+            line-height: 1.6;
+        }
+
+        .benefits-list {
+            text-align: left;
+            margin-top: 20px;
+            padding-left: 20px;
+        }
+
+        .benefits-list li {
+            color: #ffffff;
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .benefits-list li:before {
+            content: '✨';
+            position: absolute;
+            left: 0;
+            color: #ffd700;
+        }
+
+        @media (min-width: 768px) {
+            .menu-overlay {
+                width: 450px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="overlay">
+        <div class="container">
+            <div class="welcome-text">Jasa Pembuatan Website</div>
+            
+            <div class="profile">
+                <div class="profile-img">
+                    <img src="logo.jpg" alt="Profile">
+                </div>
+                <h1>Yama Website</h1>
+                <p>Cara Order Website Klik Garis 3 Di Atas lalu Klik Icon WA</p>
+            </div>
+
+            <div class="links">
+                <a href="wa.me/6285175349156" class="link">
+                    <img src="wa.png" alt="WhatsApp">
+                    <span class="left-border"></span>
+                    WhatsApp
+                </a>
+                <a href="https://www.instagram.com/yama_website?igsh=MTNybGMzdDE3djF3NQ==" class="link">
+                    <img src="ig.png" alt="Instagram">
+                    <span class="left-border"></span>
+                    Instagram
+                </a>
+                <a href="https://www.tiktok.com/@studyhangeul01?_t=8mEPvdb00zB&_r=1" class="link">
+                    <img src="tiktok.png" alt="Tiktok">
+                    <span class="left-border"></span>
+                   Tiktok
+                </a>
+                <a href="https://tiktok.com/@otodidakbahasajepang" class="link">
+                    <img src="youtube.png" alt="x">
+                    <span class="left-border"></span>
+                   YouTube
+                </a>
+            </div>
+
+              <!-- Tambahkan kode menu yang diperbarui setelah tag body -->
+    <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+    <div class="menu-overlay">
+        <div class="menu-content">
+            <h3>Order Website Klik Icon Logo di Bawah ini</h3>
+            <a href="https://wa.me/6285175349156" target="_blank">
+                <img src="wa.png" alt="WhatsApp" class="wa-icon">
+            </a>
+            <p class="order-text">Order Website Via WhatsApp</p>
+
+            <div class="marketing-content">
+                <h1>Kenapa Harus Membuat Website?</h1>
+                <p>Di era digital ini, website bukan lagi sekadar pilihan, tapi kebutuhan utama untuk mengembangkan bisnis Anda. Website adalah aset digital yang bekerja 24/7 untuk bisnis Anda.</p>
+
+                <h1>Keunggulan Website Kami:</h1>
+                <ul class="benefits-list">
+                    <li>Desain Modern & Responsif</li>
+                    <li>Optimasi SEO untuk Peringkat Google yang Lebih Baik</li>
+                    <li>Loading Cepat & Performa Tinggi</li>
+                    <li>Kemudahan Pengelolaan Konten</li>
+                    <li>Tampilan yang Menarik di Semua Perangkat</li>
+                    <li>Fitur Animasi yang Elegan</li>
+                    <li>Sistem Keamanan yang Terjamin</li>
+                    <li>Gratis Konsultasi & Support</li>
+                </ul>
+
+                <h1>Spesial Untuk Anda!</h1>
+                <p>Dapatkan penawaran khusus untuk pembuatan website profesional dengan harga terjangkau. Segera hubungi kami untuk konsultasi gratis dan penawaran menarik!</p>
+            </div>
+        </div>
+    </div>
+
+
+            <footer>
+                © 2025 - Yama Website
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                    if (entry.target.classList.contains('link')) {
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                } else {
+                    entry.target.classList.remove('fade-in');
+                    if (entry.target.classList.contains('link')) {
+                        entry.target.style.transform = 'translateY(20px)';
+                    }
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px'
+        });
+
+        document.querySelector('.welcome-text').style.opacity = '0';
+        document.querySelector('.profile').style.opacity = '0';
+        document.querySelector('footer').style.opacity = '0';
+
+        observer.observe(document.querySelector('.welcome-text'));
+        observer.observe(document.querySelector('.profile'));
+        observer.observe(document.querySelector('footer'));
+
+        document.querySelectorAll('.link').forEach(link => {
+            link.style.opacity = '0';
+            observer.observe(link);
+        });
+
+        const welcomeText = document.querySelector('.welcome-text');
+        welcomeText.classList.add('typing-animation');
+
+        setTimeout(() => {
+            welcomeText.classList.remove('typing-animation');
+            welcomeText.classList.add('float-animation');
+        }, 2000);
+
+          // Script yang sudah ada tetap sama, update script menu
+          const hamburgerMenu = document.querySelector('.hamburger-menu');
+        const menuOverlay = document.querySelector('.menu-overlay');
+
+        hamburgerMenu.addEventListener('click', () => {
+            if (menuOverlay.classList.contains('active')) {
+                menuOverlay.classList.remove('active');
+            } else {
+                menuOverlay.classList.add('active');
+            }
+        });
+
+        // Menutup menu ketika mengklik di luar menu
+        document.addEventListener('click', (e) => {
+            if (!menuOverlay.contains(e.target) && !hamburgerMenu.contains(e.target)) {
+                menuOverlay.classList.remove('active');
+            }
+        });
+
+    </script>
+</body>
+</html>
